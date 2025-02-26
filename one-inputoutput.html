@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1 INPUT 1 OUTPUT TEMPLATE</title>
+    <title>NYC Image Letter Generator</title> 
+    <link rel="stylesheet" href="styles.css">
     <style>
-
         /* STYLE FOR THE INPUT FIELD */
         #charInput {
 
@@ -20,16 +20,18 @@
         #displayedImage {
             display: none; /* This line is mandatory */
         }
+            
     </style>
 </head>
 <body>
 
-    
+<h1>Discover New York through the alphabet!</h1>    
+
     <!-- INPUT FIELD FOR 1 CHARACTER -->
     <input type="text" id="charInput" maxlength="1">
 
     <!-- BUTTON TO DISPLAY IMAGE -->
-    <button onclick="displayImage()" id="submitButton">Show Image</button>
+    <button onclick="displayImage()" id="submitButton">Discover More</button>
 
     <!-- IMAGE TO DISPLAY -->
     <img id="displayedImage" src="" alt="Displayed Image">
@@ -40,32 +42,32 @@
         // Array of images
         // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
         const images = [
-            "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGtyY24zZGdpMW1iZ3N1ZGJjOXB2ZzFvNTFkbzF4NnY1b2YyMjhlZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/i6JLRbk4f2gIU/giphy.gif", //A
-            "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2F3Zm00Y3Jzdm5raGpsODh3MTV3YnFvZXMzNTB3cnZjNWxrMzFtNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1uPiL9Amv5zkk/giphy.gif", //B
-            "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWdsZGlteGFzbXB0em1xZzNrMHFmc2xvcTVsa3F0OTVxenlpZHpsYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7AdWMjPg2hLXy/giphy.gif", //C
-            "https://via.placeholder.com/300/FFFF00/000000?text=D", //D
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=E", //E
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=F", //F
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=G", //G
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=H", //H
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=I", //I
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=J", //J
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=K", //K
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=L", //L
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=M", //M
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=N", //N
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=O", //O
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=P", //P
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=Q", //Q
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=R", //R
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=S", //S
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=T", //T
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=U", //U
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=V", //V
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=W", //W
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=X", //X
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=Y", //Y
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=Z"  //Z
+            "alphabet images/A.jpg", //A
+            "alphabet images/B.jpg", //B
+            "alphabet images/C.jpg", //C
+            "alphabet images/D.jpg", //D
+            "alphabet images/E.jpg", //E
+            "alphabet images/F.jpg", //F
+            "alphabet images/G.jpg", //G
+            "alphabet images/H.jpg", //H
+            "alphabet images/I.jpg", //I
+            "alphabet images/J.jpg", //J
+            "alphabet images/K.heic", //K
+            "alphabet images/L.jpg", //L
+            "alphabet images/M.jpg", //M
+            "alphabet images/N.jpg", //N
+            "alphabet images/O.jpg", //O
+            "alphabet images/P.jpg", //P
+            "alphabet images/Q.jpg", //Q
+            "alphabet images/R.jpg", //R
+            "alphabet images/S.jpg", //S
+            "alphabet images/T.jpg", //T
+            "alphabet images/U.jpg", //U
+            "alphabet images/V.jpg", //V
+            "alphabet images/W.jpg", //W
+            "alphabet images/X.jpg", //X
+            "alphabet images/Y.jpg", //Y
+            "alphabet images/Z.jpg"  //Z
         ];
 
         function displayImage() {
