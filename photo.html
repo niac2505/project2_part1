@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photobooth - Take Photos</title>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a href="index.html" id="home-button">Home</a>
+  <h2>Recreate this image:</h2>
+  <img id="sample-image" src="sample1.jpg" alt="Sample" />
+  <video id="camera" autoplay playsinline></video>
+  <div>
+    <button id="take-photo-btn">📸 Take Photo</button>
+  </div>
+  <p id="countdown"></p>
+  <div id="photo-strip"></div>
+
+  <script>
+    const video = document.getElementById('camera');
+    const countdownEl = document.getElementById('countdown');
+    const photoStrip = document.getElementById('photo-strip');
+    const takePhotoBtn = document.getElementById('take-photo-btn');
+    const sampleImage = document.getElementById('sample-image');
+
+    const photos = [];
+    const maxPhotos = 4;
+
+    // List of sample images to cycle through
+    const sampleImages = [
+      'photos/heart.jpeg',
+      'photos/grad.JPG',
+      'photos/camera.jpg',
+      'photos/peace.jpg'
+    ];
+
+    // Access webcam and stream to video element
+    async function startCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+      } catch (err) {
+        alert("Error accessing the camera: " + err.message);
+      }
+    }
+
+    // Countdown before photo capture
+    function startCountdown(seconds) {
+      return new Promise((resolve) => {
+        let counter = seconds;
+        countdownEl.textContent = counter;
+        const interval = setInterval(() => {
+          counter--;
+          if (counter > 0) {
+            countdownEl.textContent = counter;
+          } else {
+            countdownEl.textContent = "Smile!";
+            clearInterval(interval);
+            setTimeout(() => {
+              countdownEl.textContent = "";
+              resolve();
+            }, 800);
+          }
+        }, 1000);
+      });
+    }
+
+    // Capture image from video to canvas and return base64 string
+    function capturePhoto() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 320;
+      canvas.height = 240;
+      const ctx = canvas.getContext('2d');
+
+      // Because the video is mirrored, flip back the image before capturing
+      ctx.translate(canvas.width, 0);
+      ctx.scale(-1, 1);
+
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      return canvas.toDataURL('image/png');
+    }
+
+    // Add photo preview below camera
+    function addPhotoPreview(src) {
+      const img = document.createElement('img');
+      img.src = src;
+      img.className = 'photo-preview';
+      photoStrip.appendChild(img);
+    }
+
+    // Save photos to localStorage and redirect to result page
+    function saveAndRedirect() {
+      localStorage.setItem('photos', JSON.stringify(photos));
+      window.location.href = 'result.html';
+    }
+
+    takePhotoBtn.addEventListener('click', async () => {
+      takePhotoBtn.disabled = true;
+      await startCountdown(3);
+      const photoData = capturePhoto();
+      photos.push(photoData);
+      addPhotoPreview(photoData);
+
+      if (photos.length >= maxPhotos) {
+        // Done taking photos, save and go to results
+        saveAndRedirect();
+      } else {
+        // Update sample image to next one
+        sampleImage.src = sampleImages[photos.length];
+        takePhotoBtn.disabled = false;
+      }
+    });
+
+    // Set initial sample image
+    sampleImage.src = sampleImages[0];
+
+    startCamera();
+  </script>
+</body>
+</html>

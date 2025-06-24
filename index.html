@@ -1,96 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC Image Letter Generator</title> 
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* STYLE FOR THE INPUT FIELD */
-        #charInput {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photobooth</title>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 
-        }
-
-        /* STYLE FOR THE SUBMIT BUTTON */
-        #submitButton {
-
-        }
-
-        /* STYLE FOR THE IMAGE */
-        #displayedImage {
-            display: none; /* This line is mandatory */
-        }
-            
-    </style>
 </head>
 <body>
-
-<h1>Discover New York through the alphabet!</h1>    
-
-    <!-- INPUT FIELD FOR 1 CHARACTER -->
-    <input type="text" id="charInput" maxlength="1">
-
-    <!-- BUTTON TO DISPLAY IMAGE -->
-    <button onclick="displayImage()" id="submitButton">Discover More</button>
-
-    <!-- IMAGE TO DISPLAY -->
-    <img id="displayedImage" src="" alt="Displayed Image">
-
-
-    <!-- Image Display Script Below -->
-    <script>
-        // Array of images
-        // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
-        const images = [
-            "alphabet_images/A.jpg", //A
-            "alphabet_images/B.jpg", //B
-            "alphabet_images/C.jpg", //C
-            "alphabet_images/D.jpg", //D
-            "alphabet_images/E.jpg", //E
-            "alphabet_images/F.jpg", //F
-            "alphabet_images/G.jpg", //G
-            "alphabet_images/H.jpg", //H
-            "alphabet_images/I.jpg", //I
-            "alphabet_images/J.jpg", //J
-            "alphabet_images/K.jpg", //K
-            "alphabet_images/L.jpg", //L
-            "alphabet_images/M.jpg", //M
-            "alphabet_images/N.jpg", //N
-            "alphabet_images/O.jpg", //O
-            "alphabet_images/P.jpg", //P
-            "alphabet_images/Q.jpg", //Q
-            "alphabet_images/R.jpg", //R
-            "alphabet_images/S.jpg", //S
-            "alphabet_images/T.jpg", //T
-            "alphabet_images/U.jpg", //U
-            "alphabet_images/V.jpg", //V
-            "alphabet_images/W.jpg", //W
-            "alphabet_images/X.jpg", //X
-            "alphabet_images/Y.jpg", //Y
-            "alphabet_images/Z.jpg"  //Z
-        ];
-
-        function displayImage() {
-            const input = document.getElementById("charInput").value.toUpperCase();
-            const imgElement = document.getElementById("displayedImage");
-            
-            // Assign an image based on character (A-Z)
-            const index = input.charCodeAt(0) - 65; // 'A' is 65 in ASCII
-            if (index >= 0 && index < images.length) {
-                imgElement.src = images[index];
-                imgElement.style.display = "block";
-            } else {
-                //alert("Please enter a letter between A and Z.");
-
-                // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
-                imgElement.src = "alphabet images/STOP.JPG";
-                imgElement.style.display = "block";
-
-
-        return;
-            }
-        }
-    </script>
-
+  <div id="intro">
+    <h1>ni hao fine shyt</h1>
+    <h2>welcum to makeshift photobooth</h2>
+    <br>
+    <a href="photo.html"><button>Start</button></a>
+  </div>
 </body>
 </html>

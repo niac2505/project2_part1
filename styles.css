@@ -1,51 +1,174 @@
-h1 {
-color: #648028;
-}
-
 body {
+  font-family: 'DynaPuff', system-ui;
+  font-optical-sizing: auto;
+  font-weight: 1000;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  text-align: center;
+  background: radial-gradient(circle at center, #aceaff 0%, #9bd5ff 100%);
+  color: #082c18;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  color: #081c2c;
+}
+h2 {
+    color: #081c2c;
+  }
+
+  #intro {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: rgb(255, 252, 215);
+    gap: 0px;
+  }
+
+#sample-image {
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(34, 60, 163, 0.2);
+  width: 200px;
+  height: auto;
+}
+#camera {
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(34, 60, 163, 0.2);
+  transform: scaleX(-1); /* Mirror the camera */
+  width: 320px;
+  height: 240px;
+}
+button {
+  font-family: 'DynaPuff', system-ui;
+  font-weight: 400;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #40a7c9;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin: 5px;
+}
+button:hover {
+  background-color: #5dbddd;
 }
 
-#charInput {
-    padding: 10px;
-    font-size: 18px;
-    margin-bottom: 20px;
-    text-align: center;
+#camera, canvas {
+    margin: 10px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(34, 60, 163, 0.2);
+    transform: scaleX(-1);
+  }
+  .hidden {
+    display: none;
+  }
+  #countdown {
+    font-size: 24px;
+    color: #081c2c;
+  }
+  #photo-strip {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .photo-preview {
+    width: 80px;
+    height: 60px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    outline: none;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-#submitButton {
-    padding: 10px 20px;
-    font-size: 18px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(34, 60, 163, 0.2);
+  }
+  .border-option {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border: 3px solid transparent;
     cursor: pointer;
-    margin-bottom: 20px;
-    background-color: #8cae43;
+    border-radius: 5px;
+  }
+  .border-option.selected {
+    border-color: #063963;
+  }
+  .blue { background-color: #063963; }
+  .black { background-color: #000000; }
+  .gray { background-color: #21232b; }
+  .pink { background-color: #f3bcd7; }
+  #final-strip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .final-photo {
+    width: 320px;
+    height: 240px;
+    border: 30px solid;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+#countdown {
+  font-size: 24px;
+  color: #081c2c;
+  height: 30px;
+}
+#photo-strip {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.photo-preview {
+  width: 80px;
+  height: 60px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(34, 60, 163, 0.2);
+}
+
+.border-option {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.border-option.selected {
+  border-color: #388bce;
+}
+
+#home-button {
+    text-decoration: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #40a7c9;
     color: white;
+    border-radius: 5px;
     border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-#submitButton:hover {
-    background-color: #648028;
-}
-
-#displayedImage {
-    display: none; 
-    width: auto; 
-    height: 400px;
-    margin-top: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px #353731;
-}
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'DynaPuff', system-ui;
+    font-weight: 400;
+    transition: background 0.3s;
+    z-index: 1000;
+  }
+  
+  #home-button:hover {
+    background-color: #5dbddd;
+  }
+  
